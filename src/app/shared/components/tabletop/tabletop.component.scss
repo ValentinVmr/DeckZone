@@ -1,0 +1,24 @@
+.tabletop {
+  background-color: #232323;
+  width: 100%;
+  height: 100%;
+
+  background-image: url("~assets/images/tabletop-background.svg");
+  background-repeat: no-repeat;
+  background-position: bottom right;
+  background-size: cover;
+
+  &__card {
+    height: 100%;
+    width: 100%;
+
+    display: flex;
+    justify-items: center;
+    align-content: center;
+
+    app-add-deck-form, app-show-deck {
+      display: flex;
+      width: 100%;
+    }
+  }
+}

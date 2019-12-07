@@ -1,0 +1,35 @@
+<nav id="navigator" class="{{ this.__show ? 'active': ''}}">
+  <header>
+    <span>Deck</span>
+    <span>Zone</span>
+  </header>
+  <ul class="navigator__deck-list empty" *ngIf="!this.decks || this.decks.length === 0; else deckList">
+    <li>Aucun deck disponible !</li>
+  </ul>
+  <ng-template #deckList>
+    <ul class="navigator__deck-list" >
+      <li *ngFor="let deck of this.decks">
+        <div class="navigator__deck-list__name" (click)="this.pickADeck(deck.id)">
+          <i class="material-icons">{{ deck.icon }}</i> {{ deck.name }}
+        </div>
+        <div class="delete" (click)="this.deleteDeck(deck.id)">
+          <i class="material-icons">delete</i>
+        </div>
+      </li>
+    </ul>
+  </ng-template>
+  <div class="navigator__bottom">
+    <div class="navigator__bottom__add-deck" (click)="this.createDeck()">
+      <p>Ajouter un deck</p>
+    </div>
+    <div class="navigator__bottom__parameters">
+      <i class="material-icons">
+        build
+      </i>
+      <i class="material-icons" (click)="this.toggleNavigation()">
+        menu
+      </i>
+    </div>
+  </div>
+
+</nav>

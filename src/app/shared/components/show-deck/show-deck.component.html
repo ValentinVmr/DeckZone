@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="container__title">
+    <h1>{{ this.showedDeck.name }}</h1>
+  </div>
+  <div class="flip-card" id="flip-card" (click)="this.turnACard()">
+    <div  class="flip-card-inner" >
+      <div class="flip-card-front">
+        <img src="file:///{{ this.showedDeck.background }}" alt="Avatar" style="width: 100%">
+      </div>
+      <div class="flip-card-back">
+        <img src="file:///{{ this.pickedCard }}" style="width: 100%" >
+      </div>
+    </div>
+  </div>
+</div>

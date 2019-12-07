@@ -1,0 +1,50 @@
+<div>
+  <div class="form">
+    <h1>CRÉEZ VOTRE <span class="violet bold">DECK</span></h1>
+    <div class="form__icon-select">
+      <ul>
+        <li *ngFor="let icon of this.icons" class="{{ this.deck.icon === icon ? 'active' : ''}}">
+          <i class="material-icons" (click)="this.pickAnIcon(icon)">{{ icon }}</i>
+        </li>
+      </ul>
+    </div>
+    <div class="form__data-inputs">
+      <div>
+        <input [(ngModel)]="this.deck.name" placeholder="Nom du deck..."/>
+      </div>
+      <div>
+        <label for="cards-path">
+          <i class="material-icons">cloud_upload</i>
+          <p>
+            <ng-container *ngIf="this.deck.cards.length === 0; else cardsSelected">
+              Cliquez ici pour selectionner les cartes
+            </ng-container>
+            <ng-template #cardsSelected>
+              <span class="violet bold">{{ this.deck.cards.length }} cartes</span> sélectionnées !
+            </ng-template>
+          </p>
+        </label>
+        <input #cardsPaths (change)="this.getCardsPaths()" id="cards-path" type="file" placeholder="Images des cartes..." multiple />
+      </div>
+      <div>
+        <label for="back-card">
+          <i class="material-icons">cloud_upload</i>
+          <p>
+            <ng-container *ngIf="this.deck.background.length === 0; else backgroundSelected">
+              Cliquez ici pour sélectionner le dos de la carte
+            </ng-container>
+            <ng-template #backgroundSelected>
+              <span class="violet bold">Dos de carte</span> sélectionné !
+            </ng-template>
+          </p>
+        </label>
+        <input #backgroundPath (change)="this.getBackgroundPath()" id="back-card" type="file" placeholder="Face arrière de la carte..."/>
+      </div>
+    </div>
+    <div class="form__validate">
+      <button (click)="this.createTheDeck()" [disabled]="this.isSubmitDisabled()">
+        Valider !
+      </button>
+    </div>
+  </div>
+</div>

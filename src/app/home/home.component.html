@@ -1,0 +1,11 @@
+<div class="container">
+  <app-sidenav [decks]="this.decks | async"
+               (createDeckEvent)="this.createDeck()"
+               (deleteDeckEvent)="this.deleteDeck($event)"
+               (pickADeckEvent)="this.pickADeck($event)"
+               [(showNav)]="this.showNav"
+  ></app-sidenav>
+  <app-tabletop [showAddDeckForm]="this.showDeckCreationForm"
+                (deckCreatedEvent)="this.deckCreated($event)"
+                [showedDeck]="this.showedDeck"></app-tabletop>
+</div>

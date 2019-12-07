@@ -1,0 +1,6 @@
+<div class="tabletop">
+  <div class="tabletop__card">
+    <app-add-deck-form *ngIf="this.showAddDeckForm" (deckCreated)="this.deckCreated($event)"></app-add-deck-form>
+    <app-show-deck *ngIf="this.showedDeck != null" [showedDeck]="this.showedDeck"></app-show-deck>
+  </div>
+</div>
